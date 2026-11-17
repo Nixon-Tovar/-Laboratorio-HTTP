@@ -1,79 +1,63 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Integrante 2 - Redes y Comunicaciones IP</title>
-  <link rel="stylesheet" href="../css/estilos.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biografía y aprendizajes de Nixon Esteban Tovar Castro en el Laboratorio HTTP del Grupo 6.">
+  <title>Nixon Esteban Tovar Castro | Laboratorio HTTP · Grupo 6</title>
 </head>
 <body>
+  <nav aria-label="Navegación principal">
+    <p><a href="../index.html">← Inicio del laboratorio</a> · <a href="../index.html#equipo">Aportes del equipo</a></p>
+  </nav>
   <header>
-    <h1>Integrante 2</h1>
-    <p><em>Integrante 2 · Proyecto final Redes y Comunicaciones IP</em></p>
+    <p><small>Universidad de Ibagué · Redes y Comunicaciones IP · Grupo 6</small></p>
+    <h1>Nixon Esteban Tovar Castro</h1>
+    <p><strong>Ingeniería Electrónica</strong> · Interés en radiofrecuencia y telecomunicaciones</p>
   </header>
 
-  <nav>
-    <a href="../index.html">Inicio</a> |
-    <a href="integrante1.html">Integrante 1</a> |
-    <a href="integrante2.html">Integrante 2</a> |
-    <a href="integrante3.html">Integrante 3</a>
-  </nav>
-
-  <hr>
-
   <main>
-    <!-- Biografía personal -->
+    <hr>
     <section>
       <h2>Biografía</h2>
-      <img src="../img/avatar2.svg" alt="Foto de Integrante 2" width="140">
-      <p>
-        <!-- EDITAR: escribe aquí tu biografía -->
-        Mi nombre es <strong>Integrante 2</strong>, estudiante de [programa] en la Universidad de Ibagué.
-        Tengo [edad] años y soy de [ciudad]. Me interesa [intereses: redes, programación,
-        ciberseguridad, etc.] y en mi tiempo libre disfruto [pasatiempos].
-      </p>
-      <ul>
-        <li><strong>Semestre:</strong> [semestre]</li>
-        <li><strong>Correo:</strong> [correo institucional]</li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/">[usuario]</a></li>
-      </ul>
+      <p>Soy estudiante de Ingeniería Electrónica en la Universidad de Ibagué. Me interesan la radiofrecuencia y las telecomunicaciones. Una pregunta que conecta ese interés con el curso es por qué una red Wi-Fi puede funcionar bien cerca del punto de acceso y tener problemas al otro lado de una pared.</p>
     </section>
 
-    <!-- Resumen de lo aprendido -->
     <section>
-      <h2>Lo que aprendí en el curso: direccionamiento IP y subneteo</h2>
-      <p>
-        Aprendí cómo funcionan las direcciones <strong>IPv4</strong> (32 bits) e
-        <strong>IPv6</strong> (128 bits), la diferencia entre direcciones públicas y privadas, y
-        cómo dividir una red en subredes usando la máscara y la notación
-        <abbr title="Classless Inter-Domain Routing">CIDR</abbr>.
-      </p>
-      <p>Ejemplo: dividir <code>192.168.10.0/24</code> en 4 subredes <code>/26</code>:</p>
-      <table border="1" cellpadding="5">
-        <tr><th>Subred</th><th>Red</th><th>Hosts válidos</th><th>Broadcast</th></tr>
-        <tr><td>1</td><td>192.168.10.0/26</td><td>.1 - .62</td><td>.63</td></tr>
-        <tr><td>2</td><td>192.168.10.64/26</td><td>.65 - .126</td><td>.127</td></tr>
-        <tr><td>3</td><td>192.168.10.128/26</td><td>.129 - .190</td><td>.191</td></tr>
-        <tr><td>4</td><td>192.168.10.192/26</td><td>.193 - .254</td><td>.255</td></tr>
-      </table>
-      <h3>Conceptos clave</h3>
-      <ol>
-        <li>Rangos privados: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16</li>
-        <li>Hosts por subred = 2<sup>n</sup> − 2</li>
-        <li>NAT para salir a Internet con una IP pública</li>
-        <li>Enrutamiento estático y dinámico entre redes</li>
-      </ol>
-      <blockquote>
-        <!-- EDITAR: una reflexión personal -->
-        “[Escribe aquí una frase sobre lo que más te sirvió del curso.]”
-      </blockquote>
+      <h2>Lo que aprendí en el curso</h2>
+      <p>Antes pensaba en abrir una página como una sola acción. Con los modelos OSI y TCP/IP pude distinguir qué parte de la red transmite los datos y qué parte define el mensaje que pide la página.</p>
+      <dl>
+        <dt><strong>Modelo OSI</strong></dt>
+        <dd>Aprendí a ubicar HTTP en la capa 7. Si veo un <code>404</code>, sé que un servidor respondió y puedo empezar por revisar la ruta que pedí.</dd>
+        <dt><strong>Modelo TCP/IP</strong></dt>
+        <dd>Entendí que la dirección IP permite identificar el destino en la red y el puerto indica a qué servicio va dirigida la conexión. En este laboratorio entro por el puerto <code>8001</code> de mi equipo.</dd>
+        <dt><strong>Topologías y cableado UTP</strong></dt>
+        <dd>La topología en estrella me ayuda a ubicar una falla: si un solo equipo pierde su enlace Ethernet, puedo empezar por revisar su cable y su puerto en el switch. El probador me ayuda a verificar el orden de los conductores y su continuidad.</dd>
+        <dt><strong>Redes Wi-Fi</strong></dt>
+        <dd>Relacioné la radiofrecuencia con la experiencia de conexión. Para entender por qué baja la calidad en un lugar, revisaría la distancia al punto de acceso, los obstáculos y la interferencia de otras redes cercanas.</dd>
+      </dl>
+    </section>
+
+    <hr>
+    <section>
+      <h2>Cómo apliqué lo aprendido</h2>
+      <p>En la práctica, el navegador solicitó la portada por HTTP. Nginx respondió con el archivo HTML, y Docker permitió tener el servidor y sus archivos en un entorno que otro equipo puede reproducir con el mismo proyecto.</p>
+      <figure>
+        <picture>
+          <source media="(max-width: 389px)" srcset="../img/flujo-http-movil.png" width="220" height="280">
+          <source media="(max-width: 549px)" srcset="../img/flujo-http-movil.png" width="290" height="370">
+          <source media="(max-width: 819px)" srcset="../img/flujo-http-grupo6.png" width="450" height="214">
+          <img src="../img/flujo-http-grupo6.png" width="720" height="342" alt="El navegador envía una solicitud GET a Nginx a través del puerto publicado por Docker y recibe 200 OK con el archivo HTML.">
+        </picture>
+        <figcaption>El intercambio HTTP que podemos observar al cargar la portada.</figcaption>
+      </figure>
+      <p><a href="../index.html#practica">Ver cómo comprobar la respuesta del servidor</a></p>
     </section>
   </main>
 
-  <hr>
-
   <footer>
-    <p><a href="../index.html">← Volver al inicio</a></p>
+    <hr>
+    <p><small>Laboratorio HTTP · Grupo 6</small></p>
   </footer>
 </body>
 </html>
