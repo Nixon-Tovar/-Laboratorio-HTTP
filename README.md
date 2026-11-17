@@ -9,7 +9,7 @@ El repositorio incluye un `Dockerfile` para replicar el sitio en cualquier máqu
 
 ---
 
-## 👥 Integrantes
+##  Integrantes
 
 | Integrante | Página | Tema del resumen |
 |---|---|---|
@@ -22,7 +22,7 @@ Cada página contiene una **biografía personal** y un **resumen de lo aprendido
 
 ---
 
-## 📁 Estructura
+##  Estructura
 
 ```text
 repo-grupo/
@@ -43,22 +43,22 @@ repo-grupo/
 
 ---
 
-## ✅ Requisitos
+##  Requisitos
 
 - [Git](https://git-scm.com/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (incluye Docker Compose)
 
-> No se requiere Docker Hub: la imagen se construye localmente a partir del `Dockerfile`.
 
 ---
 
-## 🚀 Cómo replicar el sitio
+##  Cómo replicar el sitio
 
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/USUARIO/NOMBRE-DEL-REPO.git
-cd NOMBRE-DEL-REPO
+git clone https://github.com/Nixon-Tovar/-Laboratorio-HTTP
+cd -Laboratorio-HTTP
+
 ```
 
 ### 2a. Con Docker Compose (recomendado)
@@ -82,7 +82,7 @@ http://localhost:8001
 
 ---
 
-## 🛠️ Comandos útiles
+##  Comandos útiles
 
 | Acción | Comando |
 |---|---|
@@ -94,7 +94,7 @@ http://localhost:8001
 
 ---
 
-## 🧠 Relación con la Capa 7
+##  Relación con la Capa 7
 
 1. El navegador (cliente HTTP) envía `GET /index.html` al puerto **8001** del equipo.
 2. Docker redirige el puerto 8001 del anfitrión al puerto **80** del contenedor.
@@ -104,6 +104,4 @@ En `docker compose logs -f` se puede observar cada petición HTTP que recibe el 
 
 ---
 
-## 📜 Licencia
 
-Uso académico y educativo.
