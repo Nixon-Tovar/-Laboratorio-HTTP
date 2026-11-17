@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: irycip-sitio-html:latest
+    image: proyecto-capa7-html:latest
     ports:
       - "8001:80"
     restart: unless-stopped
