@@ -1,63 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Biografía y aprendizajes de Nixon Esteban Tovar Castro en el Laboratorio HTTP del Grupo 6.">
-  <title>Nixon Esteban Tovar Castro | Laboratorio HTTP · Grupo 6</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nixon Tovar - Redes y Comunicaciones IP</title>
+  <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
-  <nav aria-label="Navegación principal">
-    <p><a href="../index.html">← Inicio del laboratorio</a> · <a href="../index.html#equipo">Aportes del equipo</a></p>
-  </nav>
   <header>
-    <p><small>Universidad de Ibagué · Redes y Comunicaciones IP · Grupo 6</small></p>
     <h1>Nixon Esteban Tovar Castro</h1>
-    <p><strong>Ingeniería Electrónica</strong> · Interés en radiofrecuencia y telecomunicaciones</p>
+    <p><em>Integrante 2 · Proyecto final Redes y Comunicaciones IP</em></p>
   </header>
 
+  <nav>
+    <a href="../index.html">Inicio</a> |
+    <a href="integrante1.html">Integrante 1</a> |
+    <a href="integrante2.html">Integrante 2</a> |
+    <a href="integrante3.html">Integrante 3</a>
+  </nav>
+
+  <hr>
+
   <main>
-    <hr>
     <section>
       <h2>Biografía</h2>
-      <p>Soy estudiante de Ingeniería Electrónica en la Universidad de Ibagué. Me interesan la radiofrecuencia y las telecomunicaciones. Una pregunta que conecta ese interés con el curso es por qué una red Wi-Fi puede funcionar bien cerca del punto de acceso y tener problemas al otro lado de una pared.</p>
+      <img src="../img/avatar2.svg" alt="Avatar de Nixon Tovar" width="140">
+      <p>
+        Soy estudiante de <strong>Ingeniería Electrónica</strong> en la Universidad de Ibagué. Me interesan
+        la radiofrecuencia y las telecomunicaciones. Una pregunta que conecta ese interés con el curso es
+        por qué una red Wi-Fi puede funcionar bien cerca del punto de acceso y tener problemas al otro lado
+        de una pared.
+      </p>
     </section>
 
     <section>
-      <h2>Lo que aprendí en el curso</h2>
-      <p>Antes pensaba en abrir una página como una sola acción. Con los modelos OSI y TCP/IP pude distinguir qué parte de la red transmite los datos y qué parte define el mensaje que pide la página.</p>
+      <h2>Lo que aprendí en el curso: modelos OSI, TCP/IP y redes inalámbricas</h2>
+      <p>
+        Antes pensaba en abrir una página como una sola acción. Con los modelos OSI y TCP/IP pude distinguir
+        qué parte de la red transmite los datos y qué parte define el mensaje que pide la página.
+      </p>
       <dl>
         <dt><strong>Modelo OSI</strong></dt>
-        <dd>Aprendí a ubicar HTTP en la capa 7. Si veo un <code>404</code>, sé que un servidor respondió y puedo empezar por revisar la ruta que pedí.</dd>
+        <dd>Aprendí a ubicar HTTP en la capa 7. Si veo un <code>404</code>, sé que un servidor respondió y
+        puedo empezar por revisar la ruta que pedí.</dd>
         <dt><strong>Modelo TCP/IP</strong></dt>
-        <dd>Entendí que la dirección IP permite identificar el destino en la red y el puerto indica a qué servicio va dirigida la conexión. En este laboratorio entro por el puerto <code>8001</code> de mi equipo.</dd>
+        <dd>Entendí que la dirección IP permite identificar el destino en la red y el puerto indica a qué
+        servicio va dirigida la conexión. En este laboratorio entro por el puerto <code>8001</code> de mi equipo.</dd>
         <dt><strong>Topologías y cableado UTP</strong></dt>
-        <dd>La topología en estrella me ayuda a ubicar una falla: si un solo equipo pierde su enlace Ethernet, puedo empezar por revisar su cable y su puerto en el switch. El probador me ayuda a verificar el orden de los conductores y su continuidad.</dd>
+        <dd>La topología en estrella me ayuda a ubicar una falla: si un solo equipo pierde su enlace Ethernet,
+        puedo empezar por revisar su cable y su puerto en el switch.</dd>
         <dt><strong>Redes Wi-Fi</strong></dt>
-        <dd>Relacioné la radiofrecuencia con la experiencia de conexión. Para entender por qué baja la calidad en un lugar, revisaría la distancia al punto de acceso, los obstáculos y la interferencia de otras redes cercanas.</dd>
+        <dd>Relacioné la radiofrecuencia con la experiencia de conexión. Para entender por qué baja la calidad
+        en un lugar, revisaría la distancia al punto de acceso, los obstáculos y la interferencia de otras
+        redes cercanas.</dd>
       </dl>
-    </section>
-
-    <hr>
-    <section>
-      <h2>Cómo apliqué lo aprendido</h2>
-      <p>En la práctica, el navegador solicitó la portada por HTTP. Nginx respondió con el archivo HTML, y Docker permitió tener el servidor y sus archivos en un entorno que otro equipo puede reproducir con el mismo proyecto.</p>
-      <figure>
-        <picture>
-          <source media="(max-width: 389px)" srcset="../img/flujo-http-movil.png" width="220" height="280">
-          <source media="(max-width: 549px)" srcset="../img/flujo-http-movil.png" width="290" height="370">
-          <source media="(max-width: 819px)" srcset="../img/flujo-http-grupo6.png" width="450" height="214">
-          <img src="../img/flujo-http-grupo6.png" width="720" height="342" alt="El navegador envía una solicitud GET a Nginx a través del puerto publicado por Docker y recibe 200 OK con el archivo HTML.">
-        </picture>
-        <figcaption>El intercambio HTTP que podemos observar al cargar la portada.</figcaption>
-      </figure>
-      <p><a href="../index.html#practica">Ver cómo comprobar la respuesta del servidor</a></p>
     </section>
   </main>
 
+  <hr>
+
   <footer>
-    <hr>
-    <p><small>Laboratorio HTTP · Grupo 6</small></p>
+    <p><a href="../index.html">← Volver al inicio</a></p>
   </footer>
 </body>
 </html>
