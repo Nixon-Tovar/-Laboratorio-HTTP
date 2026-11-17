@@ -14,8 +14,8 @@ El repositorio incluye un `Dockerfile` para replicar el sitio en cualquier máqu
 | Integrante | Página | Tema del resumen |
 |---|---|---|
 | Alejandro Arana | `integrantes/integrante1.html` | Modelos OSI y TCP/IP |
-| Integrante 2 | `integrantes/integrante2.html` | Direccionamiento IP y subneteo |
-| Integrante 3 | `integrantes/integrante3.html` | Servicios de la capa de aplicación |
+| Nixon Tovar | `integrantes/integrante2.html` | Direccionamiento IP y subneteo |
+| Zahira Garzón | `integrantes/integrante3.html` | Servicios de la capa de aplicación |
 
 Cada página contiene una **biografía personal** y un **resumen de lo aprendido**, usando etiquetas HTML como
 `<h1>`, `<p>`, `<img>`, `<ul>`, `<ol>`, `<table>`, `<a>`, `<dl>`, `<pre>` y `<blockquote>`.
