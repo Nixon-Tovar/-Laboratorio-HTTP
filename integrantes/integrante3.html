@@ -1,58 +1,128 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Biografía y aprendizajes de Zahira Milena Garzón Fajardo en el Laboratorio HTTP del Grupo 6.">
-  <title>Zahira Milena Garzón Fajardo | Laboratorio HTTP · Grupo 6</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Biografía y aprendizajes de Zahira Milena Garzón Fajardo sobre los servicios de la capa de aplicación, Grupo 6.">
+  <title>Zahira Garzón - Redes y Comunicaciones IP</title>
+  <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
-  <nav aria-label="Navegación principal">
-    <p><a href="../index.html">← Inicio del laboratorio</a> · <a href="../index.html#equipo">Aportes del equipo</a></p>
-  </nav>
   <header>
-    <p><small>Universidad de Ibagué · Redes y Comunicaciones IP · Grupo 6</small></p>
     <h1>Zahira Milena Garzón Fajardo</h1>
+    <p><em>Integrante 3 · Proyecto final Redes y Comunicaciones IP · Grupo 6</em></p>
     <p><strong>Ingeniería Electrónica</strong> · Interés en biomedicina</p>
   </header>
 
+  <nav>
+    <a href="../index.html">Inicio</a> |
+    <a href="integrante1.html">Integrante 1</a> |
+    <a href="integrante2.html">Integrante 2</a> |
+    <a href="integrante3.html">Integrante 3</a>
+  </nav>
+
+  <hr>
+
   <main>
-    <hr>
+    <!-- Biografía personal -->
     <section>
       <h2>Biografía</h2>
-      <p>Soy estudiante de Ingeniería Electrónica en la Universidad de Ibagué y estoy haciendo doble titulación con Ingeniería Biomédica. En mi formación he visto materias de control, señales y sistemas, electrónica, telecomunicaciones e instrumentación biomédica. Me interesa saber cómo viaja la información de un equipo a otro, y en especial cómo un equipo médico podría enviar sus mediciones por una red hasta quien las necesita.</p>
+      <img src="../img/avatar3.svg" alt="Avatar de Zahira Garzón" width="140">
+      <p>
+        Soy estudiante de <strong>Ingeniería Electrónica</strong> en la Universidad de Ibagué y estoy haciendo
+        doble titulación con Ingeniería Biomédica. En mi formación he visto materias de control, señales y sistemas,
+        electrónica, telecomunicaciones e instrumentación biomédica. Me interesa saber cómo viaja la información de un
+        equipo a otro, y en especial cómo un equipo médico podría enviar sus mediciones por una red hasta quien las necesita.
+      </p>
     </section>
 
+    <!-- Resumen de lo aprendido -->
     <section>
-      <h2>Lo que aprendí en el curso</h2>
-      <p>Antes tenia una idea de como funcionaba la red, mas que todo por la parte fisica. En el curso aprendí que hay muchas tareas separadas por capas y que cada una se puede revisar por aparte. Eso ayuda cuando algo falla, porque no hay que adivinar: se va descartando capa por capa.</p>
+      <h2>Lo que aprendí en el curso: servicios de la capa de aplicación</h2>
+      <p>
+        Antes tenía una idea de cómo funcionaba la red, más que todo por la parte física. En el curso aprendí que la
+        capa de <strong>aplicación</strong> (capa 7) es la que ve el usuario: define cómo un programa, como el navegador,
+        le pide un servicio a otro equipo y cómo le responde ese equipo. Cada servicio usa un protocolo y un puerto.
+      </p>
+
+      <table border="1" cellpadding="5">
+        <caption>Servicios de aplicación y su puerto</caption>
+        <thead>
+          <tr><th>Servicio</th><th>Puerto</th><th>Transporte</th><th>Para qué sirve</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>HTTP</td><td>80</td><td>TCP</td><td>Pedir y entregar páginas web</td></tr>
+          <tr><td>HTTPS</td><td>443</td><td>TCP</td><td>Lo mismo que HTTP, pero cifrado con TLS</td></tr>
+          <tr><td>DNS</td><td>53</td><td>UDP (y TCP)</td><td>Traducir un nombre a una dirección IP</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Cómo funciona HTTP</h3>
+      <p>HTTP trabaja con solicitudes y respuestas. El cliente envía un mensaje con un método y una ruta, y el servidor contesta con un código de estado y el contenido.</p>
+      <pre>
+Solicitud:   GET /index.html HTTP/1.1
+             Host: localhost:8001
+
+Respuesta:   HTTP/1.1 200 OK
+             Content-Type: text/html
+             (aquí viene el HTML de la página)
+      </pre>
       <dl>
-        <dt><strong>Modelo OSI</strong></dt>
-        <dd>Las siete capas ayudan a ordenar qué hace cada parte de la comunicación. HTTP está en la capa 7, la de aplicación, y es el lenguaje con el que el navegador pide una página y el servidor responde. Un <code>200 OK</code> indica que la solicitud llegó y el servidor la atendió bien.</dd>
-        <dt><strong>Modelo TCP/IP</strong></dt>
-        <dd>Lo entendí como la versión más corta del mismo recorrido, en cuatro capas. La dirección IP dice a qué equipo se va y el puerto dice a qué servicio. En este laboratorio la solicitud entra por el puerto <code>8001</code> y Docker la lleva al puerto <code>80</code> del contenedor, donde la espera Nginx.</dd>
-        <dt><strong>Topologías y cableado UTP</strong></dt>
-        <dd>En una topología en estrella cada equipo tiene su propio cable hasta el switch. Por eso, si falla un solo equipo, empiezo revisando su cable y su puerto, y si fallan todos, sospecho del switch. En el cable UTP tiene que respetarse el orden de los pares, por ejemplo T568B en ambos extremos, y un probador permite confirmar que cada conductor llega bien.</dd>
-        <dt><strong>Redes Wi-Fi</strong></dt>
-        <dd>Aquí los datos viajan por ondas de radio, así que la distancia, las paredes y otras redes cercanas afectan la calidad. La banda de 2,4 GHz llega más lejos y la de 5 GHz da más capacidad de cerca. Con WPA2 o WPA3 se protege el enlace, algo importante si por esa red pasan datos sensibles.</dd>
+        <dt><strong>200 OK</strong></dt>
+        <dd>La solicitud se atendió bien y el servidor devolvió el recurso.</dd>
+        <dt><strong>404 Not Found</strong></dt>
+        <dd>El servidor respondió, pero esa ruta no corresponde a ningún archivo.</dd>
+        <dt><strong>500 Internal Server Error</strong></dt>
+        <dd>El servidor tuvo un problema propio al procesar la solicitud.</dd>
       </dl>
+      <p>
+        También aprendí que no todas las solicitudes piden el contenido completo. <code>GET</code> trae la página y
+        <code>HEAD</code> trae solo los encabezados, que sirve para revisar el estado de la respuesta sin descargar el HTML.
+      </p>
+
+      <h3>Conceptos clave</h3>
+      <ul>
+        <li>La capa de aplicación define el mensaje; las capas de abajo lo transportan.</li>
+        <li>Un servicio se identifica con un protocolo y un puerto.</li>
+        <li>DNS traduce nombres a direcciones IP antes de abrir la conexión.</li>
+        <li>HTTPS usa el mismo formato de mensajes que HTTP, pero cifrados.</li>
+      </ul>
     </section>
 
-    <hr>
+    <!-- Aplicación en el laboratorio -->
     <section>
-      <h2>Cómo apliqué lo aprendido</h2>
-      <p>En el laboratorio abrimos <code>http://localhost:8001/</code> y el navegador envió un <code>GET /</code>. Docker llevó esa conexión al contenedor y Nginx respondió con <code>200 OK</code> y el archivo <code>index.html</code>. Con <code>curl.exe -I</code> pude ver los encabezados de esa respuesta, como <code>Content-Type: text/html</code>, y con F12 en la pestaña Red vi la misma solicitud desde el navegador. Al pedir una ruta que no existe, Nginx respondió <code>404 Not Found</code>, lo que confirma que el servidor sí contestó pero no encontró ese archivo.</p>
-      <figure>
-        <img src="../img/flujo-http.png" width="420" height="235" alt="El navegador solicita una página con GET y el servidor responde con 200 OK y el contenido de la página.">
-        <figcaption>Intercambio de mensajes entre cliente y servidor.</figcaption>
-      </figure>
-      <p><a href="../index.html#practica">Ver cómo comprobar la respuesta del servidor</a></p>
+      <h2>Cómo lo vi en el laboratorio</h2>
+      <ol>
+        <li>El navegador escribe <code>http://localhost:8001/</code>. Como <code>localhost</code> es el propio equipo (127.0.0.1), no hace falta consultar un servidor DNS; con un dominio real, primero habría una consulta DNS.</li>
+        <li>Se abre una conexión TCP al puerto 8001 y Docker la lleva al puerto 80 del contenedor.</li>
+        <li>El navegador envía <code>GET /</code> y Nginx responde <code>200 OK</code> con el archivo <code>index.html</code>.</li>
+        <li>Si se pide una ruta que no existe, Nginx responde <code>404 Not Found</code>.</li>
+      </ol>
+      <p>
+        Para ver la respuesta se puede usar <code>curl.exe -I http://localhost:8001/</code> en PowerShell, o la pestaña
+        <strong>Red (Network)</strong> del navegador con F12. En este laboratorio se usa HTTP en el puerto 80. Con HTTPS
+        los mensajes serían los mismos, pero viajarían cifrados por el puerto 443.
+      </p>
+
+      <h3>Encapsulamiento</h3>
+      <p>
+        La palabra aparece de dos formas en este proyecto. Por un lado, el mensaje HTTP es el dato de la capa 7 y, al
+        bajar por las capas, se encapsula en un segmento TCP, luego en un paquete IP, después en una trama Ethernet y
+        finalmente en bits. Por otro lado, Docker encapsula Nginx y los archivos del sitio en un contenedor, y por eso
+        el sitio funciona igual en cualquier sistema operativo.
+      </p>
+      <blockquote>
+        Antes veía la red más que todo por la parte física: cables, señales y equipos. En el curso aprendí que por encima
+        de eso hay una capa donde se define el mensaje que realmente pide y recibe el usuario, y que entender las capas
+        por separado me ayuda a saber dónde buscar cuando algo falla.
+      </blockquote>
     </section>
   </main>
 
+  <hr>
+
   <footer>
-    <hr>
-    <p><small>Laboratorio HTTP · Grupo 6</small></p>
+    <p><a href="../index.html">← Volver al inicio</a></p>
   </footer>
 </body>
 </html>
