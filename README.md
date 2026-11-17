@@ -1,76 +1,109 @@
-# Laboratorio HTTP · Grupo 6
+# 🌐 Proyecto Final · Capa 7 del Modelo OSI
 
-Sitio de Redes de Computadoras sobre HTTP en la capa de aplicación del modelo OSI.
-La portada enlaza las biografías y los resúmenes de los integrantes.
+![HTML5](https://img.shields.io/badge/HTML5-puro-orange?logo=html5)
+![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)
+![Nginx](https://img.shields.io/badge/Nginx-alpine-green?logo=nginx)
 
-## Archivos del proyecto
+Sitio web **100 % HTML** para la asignatura **INTERNET: Redes y Comunicaciones IP** (Universidad de Ibagué).
+El repositorio incluye un `Dockerfile` para replicar el sitio en cualquier máquina usando un servidor web Nginx.
 
-| Archivo o carpeta | Función |
-|---|---|
-| `index.html` | Portada con la explicación de HTTP y los enlaces a los aportes. |
-| `integrantes/` | Una página HTML por integrante, con su biografía y resumen del curso. |
-| `img/` | Diagrama local del intercambio HTTP. |
-| `Dockerfile` | Usa Nginx como servidor y copia los archivos del sitio. |
-| `docker-compose.yml` | Define el servicio y la conexión del puerto 8001 al puerto 80. |
+---
 
-## Antes de entregar
+## 👥 Integrantes
 
-- Editar cada página de `integrantes/` con su nombre, biografía y resumen del curso.
-- Ajustar los nombres de los enlaces en `index.html`.
-- Se incluyeron tres páginas siguiendo la estructura sugerida de la guía. Si el grupo tiene otra cantidad, ajustar los archivos y sus enlaces.
-- Probar el sitio y compartir el enlace del repositorio con el profesor.
+| Integrante | Página | Tema del resumen |
+|---|---|---|
+| Alejandro Arana | `integrantes/integrante1.html` | Modelos OSI y TCP/IP |
+| Integrante 2 | `integrantes/integrante2.html` | Direccionamiento IP y subneteo |
+| Integrante 3 | `integrantes/integrante3.html` | Servicios de la capa de aplicación |
 
-## Ejecutar en otra computadora
+Cada página contiene una **biografía personal** y un **resumen de lo aprendido**, usando etiquetas HTML como
+`<h1>`, `<p>`, `<img>`, `<ul>`, `<ol>`, `<table>`, `<a>`, `<dl>`, `<pre>` y `<blockquote>`.
 
-En Windows, abre Docker Desktop y espera a que arranque. En PowerShell, ubícate
-en la carpeta del proyecto donde está el Dockerfile. Si lo recibiste por
-GitHub, puedes descargarlo con **Code → Download ZIP**, extraerlo y abrir
-PowerShell en la carpeta extraída.
+---
 
-```powershell
+## 📁 Estructura
+
+```text
+repo-grupo/
+├── README.md
+├── Dockerfile
+├── docker-compose.yml
+├── index.html
+├── css/
+│   └── estilos.css
+├── img/
+│   ├── red.svg
+│   └── avatar1.svg … avatar3.svg
+└── integrantes/
+    ├── integrante1.html
+    ├── integrante2.html
+    └── integrante3.html
+```
+
+---
+
+## ✅ Requisitos
+
+- [Git](https://git-scm.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (incluye Docker Compose)
+
+> No se requiere Docker Hub: la imagen se construye localmente a partir del `Dockerfile`.
+
+---
+
+## 🚀 Cómo replicar el sitio
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/USUARIO/NOMBRE-DEL-REPO.git
+cd NOMBRE-DEL-REPO
+```
+
+### 2a. Con Docker Compose (recomendado)
+
+```bash
 docker compose up -d --build
-docker compose ps
 ```
 
-Abre <http://localhost:8001> y revisa cada enlace. Para ver el estado y los
-encabezados de una respuesta HTTP, ejecuta:
+### 2b. Solo con Docker
 
-```powershell
-curl.exe -I http://localhost:8001/
+```bash
+docker build -t proyecto-capa7-html .
+docker run -d -p 8001:80 --name proyecto-capa7-html proyecto-capa7-html
 ```
 
-Se espera un estado `200 OK` y una cabecera `Content-Type` con `text/html`.
-La opción `-I` usa el método HEAD, que pide los encabezados de la respuesta.
-Para ver el HTML que devuelve una solicitud GET, usa `curl.exe http://localhost:8001/`.
+### 3. Abrir en el navegador
 
-Docker publica el puerto 8001 de la computadora y lo conecta con el puerto 80
-del contenedor. El Dockerfile copia los archivos del sitio a la carpeta pública
-de Nginx. Si cambias el HTML, reconstruye el sitio con el primer comando.
-
-Para detenerlo, ejecuta:
-
-```powershell
-docker compose down
+```text
+http://localhost:8001
 ```
 
-## Subir el proyecto a GitHub
+---
 
-1. Crea un repositorio nuevo con el nombre `grupo-6-laboratorio-http`.
-2. Usa la opción **uploading an existing file** si el repositorio está vacío, o
-   **Add file → Upload files** si ya tiene contenido.
-3. Sube los archivos y carpetas que están dentro de `grupo-6-laboratorio-http`.
-   Conserva las carpetas `img` e `integrantes`. El archivo oculto
-   `.dockerignore` también se incluye para excluir material auxiliar del
-   contexto de Docker.
-4. Pulsa **Commit changes**. Verifica que aparezcan `index.html`,
-   `Dockerfile` y `README.md` al abrir el repositorio.
-5. Copia la dirección del repositorio y adjúntala a la entrega de Moodle.
-   Si el repositorio es privado, verifica que el profesor pueda acceder.
+## 🛠️ Comandos útiles
 
-## Referencia de clase
+| Acción | Comando |
+|---|---|
+| Ver estado | `docker compose ps` |
+| Ver logs (peticiones HTTP) | `docker compose logs -f` |
+| Detener | `docker compose down` |
+| Reconstruir tras cambios | `docker compose up -d --build` |
+| Ver cabeceras HTTP | `curl -I http://localhost:8001` |
 
-Se conservaron el Dockerfile, la configuración de Docker Compose y el
-archivo .dockerignore del ejemplo docente. La portada y los aportes del
-Grupo 6 usan HTML puro.
+---
 
-[Repositorio de referencia del profesor](https://github.com/danfelun/IRYCIP-Sitio-HTML)
+## 🧠 Relación con la Capa 7
+
+1. El navegador (cliente HTTP) envía `GET /index.html` al puerto **8001** del equipo.
+2. Docker redirige el puerto 8001 del anfitrión al puerto **80** del contenedor.
+3. **Nginx** (servidor HTTP) responde `200 OK` con el archivo HTML.
+
+En `docker compose logs -f` se puede observar cada petición HTTP que recibe el servidor.
+
+---
+
+## 📜 Licencia
+
+Uso académico y educativo.

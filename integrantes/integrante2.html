@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrante 2 - Redes y Comunicaciones IP</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Integrante 2</h1>
+    <p><em>Integrante 2 &middot; Proyecto final Redes y Comunicaciones IP</em></p>
+  </header>
+
+  <nav>
+    <a href="../index.html">Inicio</a> |
+    <a href="integrante1.html">Integrante 1</a> |
+    <a href="integrante2.html">Integrante 2</a> |
+    <a href="integrante3.html">Integrante 3</a>
+  </nav>
+
+  <hr>
+
+  <main>
+    <!-- Biografía personal -->
+    <section>
+      <h2>Biograf&iacute;a</h2>
+      <img src="../img/avatar2.svg" alt="Foto de Integrante 2" width="140">
+      <p>
+        <!-- EDITAR: escribe aquí tu biografía -->
+        Mi nombre es <strong>Integrante 2</strong>, estudiante de [programa] en la Universidad de Ibagu&eacute;.
+        Tengo [edad] a&ntilde;os y soy de [ciudad]. Me interesa [intereses: redes, programaci&oacute;n,
+        ciberseguridad, etc.] y en mi tiempo libre disfruto [pasatiempos].
+      </p>
+      <ul>
+        <li><strong>Semestre:</strong> [semestre]</li>
+        <li><strong>Correo:</strong> [correo institucional]</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/">[usuario]</a></li>
+      </ul>
+    </section>
+
+    <!-- Resumen de lo aprendido -->
+    <section>
+      <h2>Lo que aprend&iacute; en el curso: direccionamiento IP y subneteo</h2>
+      <p>
+        Aprend&iacute; c&oacute;mo funcionan las direcciones <strong>IPv4</strong> (32 bits) e
+        <strong>IPv6</strong> (128 bits), la diferencia entre direcciones p&uacute;blicas y privadas, y
+        c&oacute;mo dividir una red en subredes usando la m&aacute;scara y la notaci&oacute;n
+        <abbr title="Classless Inter-Domain Routing">CIDR</abbr>.
+      </p>
+      <p>Ejemplo: dividir <code>192.168.10.0/24</code> en 4 subredes <code>/26</code>:</p>
+      <table border="1" cellpadding="5">
+        <tr><th>Subred</th><th>Red</th><th>Hosts v&aacute;lidos</th><th>Broadcast</th></tr>
+        <tr><td>1</td><td>192.168.10.0/26</td><td>.1 - .62</td><td>.63</td></tr>
+        <tr><td>2</td><td>192.168.10.64/26</td><td>.65 - .126</td><td>.127</td></tr>
+        <tr><td>3</td><td>192.168.10.128/26</td><td>.129 - .190</td><td>.191</td></tr>
+        <tr><td>4</td><td>192.168.10.192/26</td><td>.193 - .254</td><td>.255</td></tr>
+      </table>
+      <h3>Conceptos clave</h3>
+      <ol>
+        <li>Rangos privados: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16</li>
+        <li>Hosts por subred = 2<sup>n</sup> &minus; 2</li>
+        <li>NAT para salir a Internet con una IP p&uacute;blica</li>
+        <li>Enrutamiento est&aacute;tico y din&aacute;mico entre redes</li>
+      </ol>
+      <blockquote>
+        <!-- EDITAR: una reflexión personal -->
+        &ldquo;[Escribe aqu&iacute; una frase sobre lo que m&aacute;s te sirvi&oacute; del curso.]&rdquo;
+      </blockquote>
+    </section>
+  </main>
+
+  <hr>
+
+  <footer>
+    <p><a href="../index.html">&larr; Volver al inicio</a></p>
+  </footer>
+</body>
+</html>

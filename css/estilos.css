@@ -1,0 +1,8 @@
+/* Estilo mínimo opcional: el sitio se ve correctamente aun sin este archivo */
+body { font-family: Arial, Helvetica, sans-serif; max-width: 860px; margin: 0 auto; padding: 16px; line-height: 1.5; color: #1d2433; }
+header { text-align: center; }
+h1, h2 { color: #0b2545; }
+nav { text-align: center; }
+table { border-collapse: collapse; }
+pre { background: #f2f4f8; padding: 10px; overflow-x: auto; }
+blockquote { border-left: 4px solid #4cc9f0; margin-left: 0; padding-left: 12px; color: #444; }

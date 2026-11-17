@@ -1,121 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Laboratorio HTTP del Grupo 6 de la Universidad de Ibagué. Del navegador al servidor y su relación con los temas del curso.">
-  <title>Del navegador al servidor | Laboratorio HTTP · Grupo 6</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Final - Redes y Comunicaciones IP</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body id="inicio">
+<body>
+  <!-- Encabezado principal del sitio -->
   <header>
-    <p><small>Universidad de Ibagué · Redes y Comunicaciones IP · Grupo 6</small></p>
-    <h1>Del navegador al servidor</h1>
-    <p><strong>Laboratorio HTTP</strong> · Capa de aplicación del modelo OSI</p>
-    <nav aria-label="Secciones de la portada">
-      <p><a href="#practica">Demostración</a> · <a href="#curso">Temas del curso</a> · <a href="#equipo">Integrantes</a></p>
-    </nav>
+    <img src="img/red.svg" alt="Diagrama de una red de computadoras" width="160">
+    <h1>INTERNET: Redes y Comunicaciones IP</h1>
+    <p><strong>Proyecto final &middot; Capa 7 del Modelo OSI</strong></p>
+    <p>Universidad de Ibagu&eacute; &middot; 2026</p>
   </header>
 
+  <!-- Navegación entre páginas -->
+  <nav>
+    <a href="index.html">Inicio</a> |
+    <a href="integrantes/integrante1.html">Integrante 1</a> |
+    <a href="integrantes/integrante2.html">Integrante 2</a> |
+    <a href="integrantes/integrante3.html">Integrante 3</a>
+  </nav>
+
+  <hr>
+
   <main>
-    <hr>
-    <section id="practica">
-      <h2>¿Qué pasa al abrir la página?</h2>
-      <p>Al entrar a <a href="http://localhost:8001/">http://localhost:8001/</a>, el navegador le pide la portada a un servidor que corre en la misma computadora.</p>
-      <figure>
-        <picture>
-          <source media="(max-width: 389px)" srcset="img/flujo-http-movil.png" width="220" height="280">
-          <source media="(max-width: 549px)" srcset="img/flujo-http-movil.png" width="290" height="370">
-          <source media="(max-width: 819px)" srcset="img/flujo-http-grupo6.png" width="450" height="214">
-          <img src="img/flujo-http-grupo6.png" width="720" height="342" alt="El navegador solicita la portada con GET /. Docker conecta el puerto 8001 de la computadora con el puerto 80 del contenedor. Nginx responde 200 OK y devuelve index.html.">
-        </picture>
-        <figcaption>Una solicitud HTTP y su respuesta en el laboratorio.</figcaption>
-      </figure>
+    <section>
+      <h2>Objetivo del proyecto</h2>
+      <p>
+        Construir un sitio web en <strong>HTML puro</strong>, organizarlo en un repositorio de
+        <strong>GitHub</strong> y empaquetarlo con un <strong>Dockerfile</strong> para que cualquier
+        persona pueda replicarlo en otra m&aacute;quina con un solo comando.
+      </p>
+    </section>
+
+    <section>
+      <h2>&iquest;Qu&eacute; tiene que ver con la Capa 7?</h2>
+      <p>
+        La capa de <em>Aplicaci&oacute;n</em> es la m&aacute;s cercana al usuario. Cuando abres este sitio,
+        tu navegador (cliente) env&iacute;a una petici&oacute;n <abbr title="HyperText Transfer Protocol">HTTP</abbr>
+        al servidor web <strong>Nginx</strong> que corre dentro de un contenedor Docker, y el servidor
+        responde con estos archivos HTML.
+      </p>
       <ol>
-        <li><strong>Navegador.</strong> Envía <code>GET /</code> para solicitar la portada.</li>
-        <li><strong>Docker.</strong> Publica el puerto <code>8001</code> de la computadora y dirige la conexión al puerto <code>80</code> del contenedor.</li>
-        <li><strong>Nginx.</strong> Atiende la solicitud y devuelve <code>200 OK</code> con el contenido de <code>index.html</code>. El navegador interpreta ese HTML y muestra la página.</li>
+        <li>El navegador resuelve el nombre del host (DNS) o usa <code>localhost</code>.</li>
+        <li>Se abre una conexi&oacute;n TCP al puerto 8001 del equipo anfitri&oacute;n.</li>
+        <li>Docker redirige ese puerto al puerto 80 del contenedor.</li>
+        <li>El navegador env&iacute;a <code>GET /index.html HTTP/1.1</code>.</li>
+        <li>Nginx responde <code>HTTP/1.1 200 OK</code> con el documento HTML.</li>
       </ol>
-
-      <h3>Compruébalo en Windows</h3>
-      <p>Con Docker Desktop abierto, ejecuta estos comandos desde la carpeta del proyecto.</p>
-      <pre><code>docker compose up -d --build
-docker compose ps
-curl.exe -I http://localhost:8001/</code></pre>
-      <p>En la terminal, busca <code>200 OK</code> y <code>Content-Type: text/html</code>. La opción <code>-I</code> envía una solicitud <code>HEAD</code> para consultar los encabezados. Al abrir la página en el navegador puedes ver la respuesta a <code>GET</code> en <strong>F12 → Red (Network)</strong>, después de recargar.</p>
-      <details>
-        <summary>¿Cómo veo un 404?</summary>
-        <p>Con el sitio en ejecución, abre <a href="http://localhost:8001/pagina-inexistente.html">una ruta inexistente del servidor local</a>. Nginx sigue respondiendo por HTTP, pero devuelve <code>404 Not Found</code> porque esa ruta no corresponde a un archivo del sitio.</p>
-      </details>
+      <pre>
+Cliente (navegador)  --->  GET /index.html  --->  Nginx (contenedor :80)
+Cliente (navegador)  <---  200 OK + HTML    <---  Nginx (contenedor :80)
+      </pre>
     </section>
 
-    <hr>
-    <section id="curso">
-      <h2>Cuatro temas del curso en una sola práctica</h2>
-
-      <article>
-        <h3>Modelo OSI</h3>
-        <p>El modelo OSI explica la comunicación en siete capas. HTTP pertenece a la <strong>capa 7, Aplicación</strong>, donde se define cómo el navegador solicita un recurso y cómo responde el servidor. Las capas inferiores se encargan de tareas como el transporte, el direccionamiento y la transmisión de señales.</p>
-        <details>
-          <summary>Ver las siete capas</summary>
-          <ol reversed>
-            <li><strong>Aplicación.</strong> Protocolos de servicios como HTTP.</li>
-            <li><strong>Presentación.</strong> Representación y transformación de los datos.</li>
-            <li><strong>Sesión.</strong> Organización del diálogo entre aplicaciones.</li>
-            <li><strong>Transporte.</strong> Comunicación entre procesos de origen y destino.</li>
-            <li><strong>Red.</strong> Direccionamiento y encaminamiento entre redes.</li>
-            <li><strong>Enlace de datos.</strong> Intercambio de tramas en un enlace local.</li>
-            <li><strong>Física.</strong> Transmisión de bits como señales eléctricas, ópticas o de radio.</li>
-          </ol>
-        </details>
-      </article>
-
-      <article>
-        <h3>Modelo TCP/IP</h3>
-        <p>El modelo TCP/IP agrupa la comunicación en cuatro capas. En esta práctica, HTTP define el intercambio de mensajes y TCP transporta sus datos usando una conexión al puerto publicado.</p>
-        <table>
-          <caption><strong>Las cuatro capas de TCP/IP</strong></caption>
-          <thead>
-            <tr><th scope="col">Capa</th><th scope="col">Función y ejemplos</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Aplicación</th><td>Intercambio de información entre aplicaciones. Ejemplos: HTTP y DNS.</td></tr>
-            <tr><th scope="row">Transporte</th><td>Comunicación entre procesos usando puertos. Ejemplos: TCP y UDP.</td></tr>
-            <tr><th scope="row">Internet</th><td>Direccionamiento y encaminamiento de paquetes. Ejemplos: IPv4 e IPv6.</td></tr>
-            <tr><th scope="row">Acceso a red</th><td>Entrega sobre el enlace local. Ejemplos: Ethernet y Wi-Fi.</td></tr>
-          </tbody>
-        </table>
-      </article>
-
-      <article>
-        <h3>Topologías y cableado UTP</h3>
-        <p>La topología describe cómo se conectan los equipos. En una <strong>estrella</strong>, cada equipo tiene su propio enlace hacia un switch central. Si un cable falla, el equipo conectado a ese cable pierde su enlace. Si falla el switch central, se afectan todos los que dependen de él.</p>
-        <p>Un cable Ethernet UTP tiene cuatro pares trenzados. Para armar un cable directo se puede usar <strong>T568B en ambos extremos</strong>. Un probador de cable ayuda a verificar la continuidad y el orden de los conductores.</p>
-      </article>
-
-      <article>
-        <h3>Redes Wi-Fi</h3>
-        <p>Wi-Fi conecta los equipos al punto de acceso mediante ondas de radio. En general, la banda de <strong>2,4 GHz</strong> ofrece más alcance y suele tener más interferencia. La banda de <strong>5 GHz</strong> suele ofrecer más capacidad a distancias cortas. WPA2 y WPA3 ayudan a proteger el enlace inalámbrico.</p>
-        <p><strong>¿Dónde entra Wi-Fi en esta práctica?</strong> Con <code>localhost</code> la conexión se queda en el equipo. Si el navegador y el servidor estuvieran en equipos distintos de la misma red, la solicitud HTTP podría viajar por Wi-Fi o Ethernet según cómo estén conectados.</p>
-      </article>
+    <section>
+      <h2>Flujo de trabajo</h2>
+      <table border="1" cellpadding="6">
+        <caption>De c&oacute;digo HTML a sitio replicable</caption>
+        <thead>
+          <tr><th>Paso</th><th>Herramienta</th><th>Resultado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>HTML</td><td>P&aacute;ginas del sitio</td></tr>
+          <tr><td>2</td><td>README.md</td><td>Instrucciones de uso</td></tr>
+          <tr><td>3</td><td>Dockerfile</td><td>Imagen con Nginx y el sitio</td></tr>
+          <tr><td>4</td><td>GitHub</td><td>Repositorio p&uacute;blico y versionado</td></tr>
+          <tr><td>5</td><td>docker compose</td><td>Sitio corriendo en <code>http://localhost:8001</code></td></tr>
+        </tbody>
+      </table>
     </section>
 
-    <hr>
-    <section id="equipo">
-      <h2>Aportes individuales</h2>
-      <nav aria-label="Páginas de los integrantes">
-        <ul>
-          <li><a href="integrantes/NixonTovar.html">Nixon Tovar</a></li>
-          <li><a href="integrantes/AlejandroArana.html">Alejandro Arana</a></li>
-          <li><a href="integrantes/ZahiraGarzón.html">Zahira Garzón</a></li>
-        </ul>
-      </nav>
+    <section>
+      <h2>Integrantes del grupo</h2>
+      <ul>
+        <li><a href="integrantes/integrante1.html">Alejandro Arana</a></li>
+        <li><a href="integrantes/integrante2.html">Integrante 2</a></li>
+        <li><a href="integrantes/integrante3.html">Integrante 3</a></li>
+      </ul>
     </section>
   </main>
 
+  <hr>
+
   <footer>
-    <hr>
-    <p><small>Material del curso · Modelo OSI, Modelo TCP/IP, Topologías y cableado UTP y Redes inalámbricas.</small></p>
-    <p><a href="#inicio">Volver al inicio</a></p>
+    <p>
+      Repositorio de referencia del curso:
+      <a href="https://github.com/danfelun/IRYCIP-Sitio-HTML" target="_blank">IRYCIP-Sitio-HTML</a>
+    </p>
+    <p><small>Sitio servido con Nginx en Docker &middot; Uso acad&eacute;mico</small></p>
   </footer>
 </body>
 </html>
