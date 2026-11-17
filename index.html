@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
     <img src="img/red.svg" alt="Diagrama de una red de computadoras" width="160">
     <h1>INTERNET: Redes y Comunicaciones IP</h1>
     <p><strong>Proyecto final &middot; Capa 7 del Modelo OSI</strong></p>
-    <p>Universidad de Ibagu&eacute; &middot; 2026</p>
+    <p>Universidad de Ibagué &middot; 2026</p>
   </header>
 
   <!-- Navegación entre páginas -->
@@ -31,23 +31,23 @@
       <p>
         Construir un sitio web en <strong>HTML puro</strong>, organizarlo en un repositorio de
         <strong>GitHub</strong> y empaquetarlo con un <strong>Dockerfile</strong> para que cualquier
-        persona pueda replicarlo en otra m&aacute;quina con un solo comando.
+        persona pueda replicarlo en otra máquina con un solo comando.
       </p>
     </section>
 
     <section>
-      <h2>&iquest;Qu&eacute; tiene que ver con la Capa 7?</h2>
+      <h2>¿Qué tiene que ver con la Capa 7?</h2>
       <p>
-        La capa de <em>Aplicaci&oacute;n</em> es la m&aacute;s cercana al usuario. Cuando abres este sitio,
-        tu navegador (cliente) env&iacute;a una petici&oacute;n <abbr title="HyperText Transfer Protocol">HTTP</abbr>
+        La capa de <em>Aplicación</em> es la más cercana al usuario. Cuando abres este sitio,
+        tu navegador (cliente) envía una petición <abbr title="HyperText Transfer Protocol">HTTP</abbr>
         al servidor web <strong>Nginx</strong> que corre dentro de un contenedor Docker, y el servidor
         responde con estos archivos HTML.
       </p>
       <ol>
         <li>El navegador resuelve el nombre del host (DNS) o usa <code>localhost</code>.</li>
-        <li>Se abre una conexi&oacute;n TCP al puerto 8001 del equipo anfitri&oacute;n.</li>
+        <li>Se abre una conexión TCP al puerto 8001 del equipo anfitrión.</li>
         <li>Docker redirige ese puerto al puerto 80 del contenedor.</li>
-        <li>El navegador env&iacute;a <code>GET /index.html HTTP/1.1</code>.</li>
+        <li>El navegador envía <code>GET /index.html HTTP/1.1</code>.</li>
         <li>Nginx responde <code>HTTP/1.1 200 OK</code> con el documento HTML.</li>
       </ol>
       <pre>
@@ -59,15 +59,15 @@ Cliente (navegador)  <---  200 OK + HTML    <---  Nginx (contenedor :80)
     <section>
       <h2>Flujo de trabajo</h2>
       <table border="1" cellpadding="6">
-        <caption>De c&oacute;digo HTML a sitio replicable</caption>
+        <caption>De código HTML a sitio replicable</caption>
         <thead>
           <tr><th>Paso</th><th>Herramienta</th><th>Resultado</th></tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>HTML</td><td>P&aacute;ginas del sitio</td></tr>
+          <tr><td>1</td><td>HTML</td><td>Páginas del sitio</td></tr>
           <tr><td>2</td><td>README.md</td><td>Instrucciones de uso</td></tr>
           <tr><td>3</td><td>Dockerfile</td><td>Imagen con Nginx y el sitio</td></tr>
-          <tr><td>4</td><td>GitHub</td><td>Repositorio p&uacute;blico y versionado</td></tr>
+          <tr><td>4</td><td>GitHub</td><td>Repositorio público y versionado</td></tr>
           <tr><td>5</td><td>docker compose</td><td>Sitio corriendo en <code>http://localhost:8001</code></td></tr>
         </tbody>
       </table>
@@ -90,7 +90,7 @@ Cliente (navegador)  <---  200 OK + HTML    <---  Nginx (contenedor :80)
       Repositorio de referencia del curso:
       <a href="https://github.com/danfelun/IRYCIP-Sitio-HTML" target="_blank">IRYCIP-Sitio-HTML</a>
     </p>
-    <p><small>Sitio servido con Nginx en Docker &middot; Uso acad&eacute;mico</small></p>
+    <p><small>Sitio servido con Nginx en Docker &middot; Uso académico</small></p>
   </footer>
 </body>
 </html>
