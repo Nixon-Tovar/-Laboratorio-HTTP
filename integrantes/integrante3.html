@@ -1,78 +1,58 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Integrante 3 - Redes y Comunicaciones IP</title>
-  <link rel="stylesheet" href="../css/estilos.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biografía y aprendizajes de Zahira Milena Garzón Fajardo en el Laboratorio HTTP del Grupo 6.">
+  <title>Zahira Milena Garzón Fajardo | Laboratorio HTTP · Grupo 6</title>
 </head>
 <body>
+  <nav aria-label="Navegación principal">
+    <p><a href="../index.html">← Inicio del laboratorio</a> · <a href="../index.html#equipo">Aportes del equipo</a></p>
+  </nav>
   <header>
-    <h1>Integrante 3</h1>
-    <p><em>Integrante 3 · Proyecto final Redes y Comunicaciones IP</em></p>
+    <p><small>Universidad de Ibagué · Redes y Comunicaciones IP · Grupo 6</small></p>
+    <h1>Zahira Milena Garzón Fajardo</h1>
+    <p><strong>Ingeniería Electrónica</strong> · Interés en biomedicina</p>
   </header>
 
-  <nav>
-    <a href="../index.html">Inicio</a> |
-    <a href="integrante1.html">Integrante 1</a> |
-    <a href="integrante2.html">Integrante 2</a> |
-    <a href="integrante3.html">Integrante 3</a>
-  </nav>
-
-  <hr>
-
   <main>
-    <!-- Biografía personal -->
+    <hr>
     <section>
       <h2>Biografía</h2>
-      <img src="../img/avatar3.svg" alt="Foto de Integrante 3" width="140">
-      <p>
-        <!-- EDITAR: escribe aquí tu biografía -->
-        Mi nombre es <strong>Integrante 3</strong>, estudiante de [programa] en la Universidad de Ibagué.
-        Tengo [edad] años y soy de [ciudad]. Me interesa [intereses: redes, programación,
-        ciberseguridad, etc.] y en mi tiempo libre disfruto [pasatiempos].
-      </p>
-      <ul>
-        <li><strong>Semestre:</strong> [semestre]</li>
-        <li><strong>Correo:</strong> [correo institucional]</li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/">[usuario]</a></li>
-      </ul>
+      <p>Soy estudiante de Ingeniería Electrónica en la Universidad de Ibagué y estoy haciendo doble titulación con Ingeniería Biomédica. En mi formación he visto materias de control, señales y sistemas, electrónica, telecomunicaciones e instrumentación biomédica. Me interesa saber cómo viaja la información de un equipo a otro, y en especial cómo un equipo médico podría enviar sus mediciones por una red hasta quien las necesita.</p>
     </section>
 
-    <!-- Resumen de lo aprendido -->
     <section>
-      <h2>Lo que aprendí en el curso: servicios de la capa de aplicación</h2>
-      <p>
-        Aprendí que la <strong>capa 7</strong> es donde viven los servicios que usamos todos los
-        días: la web (<strong>HTTP/HTTPS</strong>), la resolución de nombres
-        (<strong>DNS</strong>), el correo (<strong>SMTP</strong>) y la asignación automática de
-        direcciones (<strong>DHCP</strong>). También vimos cómo publicar un sitio web con un
-        servidor como <strong>Nginx</strong> dentro de un contenedor <strong>Docker</strong>.
-      </p>
-      <p>Una respuesta HTTP típica se ve así:</p>
-      <pre>
-HTTP/1.1 200 OK
-Server: nginx
-Content-Type: text/html
-      </pre>
-      <h3>Conceptos clave</h3>
+      <h2>Lo que aprendí en el curso</h2>
+      <p>Antes tenia una idea de como funcionaba la red, mas que todo por la parte fisica. En el curso aprendí que hay muchas tareas separadas por capas y que cada una se puede revisar por aparte. Eso ayuda cuando algo falla, porque no hay que adivinar: se va descartando capa por capa.</p>
       <dl>
-        <dt>HTTP</dt><dd>Protocolo petición/respuesta para transferir páginas web (puerto 80).</dd>
-        <dt>DNS</dt><dd>Traduce nombres de dominio a direcciones IP (puerto 53).</dd>
-        <dt>Docker</dt><dd>Empaqueta una aplicación con todo lo necesario para ejecutarse igual en cualquier máquina.</dd>
-        <dt>Códigos de estado</dt><dd>200 OK, 301 redirección, 404 no encontrado, 500 error del servidor.</dd>
+        <dt><strong>Modelo OSI</strong></dt>
+        <dd>Las siete capas ayudan a ordenar qué hace cada parte de la comunicación. HTTP está en la capa 7, la de aplicación, y es el lenguaje con el que el navegador pide una página y el servidor responde. Un <code>200 OK</code> indica que la solicitud llegó y el servidor la atendió bien.</dd>
+        <dt><strong>Modelo TCP/IP</strong></dt>
+        <dd>Lo entendí como la versión más corta del mismo recorrido, en cuatro capas. La dirección IP dice a qué equipo se va y el puerto dice a qué servicio. En este laboratorio la solicitud entra por el puerto <code>8001</code> y Docker la lleva al puerto <code>80</code> del contenedor, donde la espera Nginx.</dd>
+        <dt><strong>Topologías y cableado UTP</strong></dt>
+        <dd>En una topología en estrella cada equipo tiene su propio cable hasta el switch. Por eso, si falla un solo equipo, empiezo revisando su cable y su puerto, y si fallan todos, sospecho del switch. En el cable UTP tiene que respetarse el orden de los pares, por ejemplo T568B en ambos extremos, y un probador permite confirmar que cada conductor llega bien.</dd>
+        <dt><strong>Redes Wi-Fi</strong></dt>
+        <dd>Aquí los datos viajan por ondas de radio, así que la distancia, las paredes y otras redes cercanas afectan la calidad. La banda de 2,4 GHz llega más lejos y la de 5 GHz da más capacidad de cerca. Con WPA2 o WPA3 se protege el enlace, algo importante si por esa red pasan datos sensibles.</dd>
       </dl>
-      <blockquote>
-        <!-- EDITAR: una reflexión personal -->
-        “[Escribe aquí una frase sobre lo que más te sirvió del curso.]”
-      </blockquote>
+    </section>
+
+    <hr>
+    <section>
+      <h2>Cómo apliqué lo aprendido</h2>
+      <p>En el laboratorio abrimos <code>http://localhost:8001/</code> y el navegador envió un <code>GET /</code>. Docker llevó esa conexión al contenedor y Nginx respondió con <code>200 OK</code> y el archivo <code>index.html</code>. Con <code>curl.exe -I</code> pude ver los encabezados de esa respuesta, como <code>Content-Type: text/html</code>, y con F12 en la pestaña Red vi la misma solicitud desde el navegador. Al pedir una ruta que no existe, Nginx respondió <code>404 Not Found</code>, lo que confirma que el servidor sí contestó pero no encontró ese archivo.</p>
+      <figure>
+        <img src="../img/flujo-http.png" width="420" height="235" alt="El navegador solicita una página con GET y el servidor responde con 200 OK y el contenido de la página.">
+        <figcaption>Intercambio de mensajes entre cliente y servidor.</figcaption>
+      </figure>
+      <p><a href="../index.html#practica">Ver cómo comprobar la respuesta del servidor</a></p>
     </section>
   </main>
 
-  <hr>
-
   <footer>
-    <p><a href="../index.html">← Volver al inicio</a></p>
+    <hr>
+    <p><small>Laboratorio HTTP · Grupo 6</small></p>
   </footer>
 </body>
 </html>
